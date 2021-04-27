@@ -44,9 +44,12 @@ Code covers below concept along with business implementation
 1. Clone the solution: $ git clone https://github.com/nadeemiimt/payment-api.git
 2. Open solution in Visual Studio 2019
 3. Change web config in /PaymentApi/appsettings.json file and change the DefaultConnection section with correct Database connection string.
-4. Run below migration commands:
+4. Build the solution.
+5. Run below migration commands:
 -     dotnet ef --startup-project PaymentApi/PaymentApi.csproj migrations add InitialModel -p PaymentDataLayer/PaymentDataLayer.csproj
 -     dotnet ef --startup-project PaymentApi/PaymentApi.csproj database update
+6. Verify database is created
+7. Run the solution
 
 # API Test
 - Postman collection named: Payment API.postman_collection.json has been provided in root location.
