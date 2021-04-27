@@ -52,4 +52,4 @@ Code covers below concept along with business implementation
 7. Run the solution
 
 # API Test
-- Postman collection named: Payment API.postman_collection.json has been provided in root location.
+- Postman collection: https://github.com/nadeemiimt/payment-api/blob/master/Payment%20API.postman_collection.json has been provided to test API.
