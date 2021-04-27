@@ -45,7 +45,7 @@ Code covers below concept along with business implementation
 2. Open solution in Visual Studio 2019
 3. Change web config in /PaymentApi/appsettings.json file and change the DefaultConnection section with correct Database connection string.
 4. Build the solution.
-5. Run below migration commands:
+5. From Command prompt run below migration commands in root folder:
 -     dotnet ef --startup-project PaymentApi/PaymentApi.csproj migrations add InitialModel -p PaymentDataLayer/PaymentDataLayer.csproj
 -     dotnet ef --startup-project PaymentApi/PaymentApi.csproj database update
 6. Verify database is created
