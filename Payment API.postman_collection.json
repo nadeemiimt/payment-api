@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "69f3c9e4-3a7f-4468-86fc-5920a73abc45",
+		"name": "Payment API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Process payment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"creditCardNumber\": \"4111111111111111\",\r\n    \"cardHolder\": \"Nadeem\",\r\n    \"expirationDate\": \"2022-09-21\",\r\n    \"securityCode\": \"123\",\r\n    \"amount\": 123.45\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44310/api/v1/payment",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44310",
+					"path": [
+						"api",
+						"v1",
+						"payment"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

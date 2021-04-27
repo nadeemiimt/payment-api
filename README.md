@@ -48,3 +48,5 @@ Code covers below concept along with business implementation
 -     dotnet ef --startup-project PaymentApi/PaymentApi.csproj migrations add InitialModel -p PaymentDataLayer/PaymentDataLayer.csproj
 -     dotnet ef --startup-project PaymentApi/PaymentApi.csproj database update
 
+# API Test
+- Postman collection named: Payment API.postman_collection.json has been provided in root location.
