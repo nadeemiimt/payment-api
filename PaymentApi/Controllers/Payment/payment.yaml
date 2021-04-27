@@ -1,0 +1,108 @@
+openapi: 3.0.1
+info:
+  title: Payment APIs
+  description: API for Payment processing.
+  license:
+    name: Copyright (c) 2021 Nadeem, Inc. All rights reserved.
+  version: "1"
+servers:
+- url: https://www.api.nadeemtech.com/api/V1
+paths:
+  /payment:
+    post:
+      tags:
+      - PaymentsV1
+      summary: Process payment request.
+      description: It process the payment request.
+      operationId: ProcessPayment
+      requestBody:
+        description: Payment details required for processing.
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/PaymentRequestModel'
+        required: true
+      responses:
+        200:
+          description: Ok
+          content: {}
+        400:
+          description: |
+            Bad Request
+            1. {1018: The request is invalid.}
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
+        500:
+          description: |
+            Internal server error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/CustomErrorDetails'
+components:
+  schemas:
+    PaymentRequestModel:
+      type: object
+      properties:
+        creditCardNumber:
+          type: string
+          nullable: false
+          description: Credit card number.
+        cardHolder:
+          type: string
+          nullable: false
+          description: Card holder name.
+        expirationDate:
+          type: string
+          nullable: false
+          description: Card expiration date.
+          format: date
+        securityCode:
+          maxLength: 3
+          minLength: 3
+          type: string
+          description: Security code.
+        amount:
+          type: number
+          nullable: false
+          format: double
+          description: Amount to be processed.
+      required: ["creditCardNumber", "cardHolder", "expirationDate", "amount"] 
+      description: This defines a payment details required for processing.
+    CustomErrorDetails:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: Application status code specific to operation
+          format: int32
+        traceId: 
+            type: string
+            description: Trace id.
+        message:
+          type: object
+          properties: {}
+          description: Friendly error message (any serializable type)
+      description: Represents the exception object thrown from API
+      x-ignore: true
+    ErrorDetails:
+     type: object
+     properties:
+       type: 
+        type: string
+        description: Error type details.
+       title: 
+        type: string
+        description: Error title.
+       status: 
+        type: integer
+        description: Error status code.
+       traceId: 
+        type: string
+        description: Trace id.
+       errors:
+        type: object
+        properties: {}
+        description: Friendly error message (any serializable type)
